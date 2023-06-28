@@ -32,7 +32,7 @@ void generateSentence(char* sentence) {
 
     while (fgets(line, sizeof(line), file) != NULL) {
         if (currentIndex == randomIndex) {
-            line[strcspn(line, "\n")] = 0;  // Remove newline character
+            line[strcspn(line, "\n")] = 0;
             strcpy(sentence, line);
             break;
         }
@@ -71,7 +71,7 @@ int main() {
             printf("Time's up! Game Over.\n");
             printf("Errors: %d\n", errors);
             printf("Score: %d\n", score);
-            Sleep(1000);  // Delay for 1 second before exiting
+            Sleep(1000);
             exit(0);
         }
 
@@ -79,7 +79,6 @@ int main() {
             char input[MAX_SENTENCE_LENGTH];
             fgets(input, sizeof(input), stdin);
 
-            // Remove the newline character from the input string
             input[strcspn(input, "\n")] = 0;
 
             if (strcmp(input, sentence) == 0) {
@@ -88,7 +87,7 @@ int main() {
                     printf("------------------------------------\n");
                     printf("Congratulations! You won the game!\n");
                     printf("Score: %d\n", score);
-                    Sleep(1000);  // Delay for 1 second before exiting
+                    Sleep(1000);
                     exit(0);
                 }
                 generateSentence(sentence);
@@ -100,7 +99,7 @@ int main() {
                     printf("Game Over! You made too many errors.\n");
                     printf("Errors: %d\n", errors);
                     printf("Score: %d\n", score);
-                    Sleep(1000);  // Delay for 1 second before exiting
+                    Sleep(1000);
                     exit(0);
                 }
                 generateSentence(sentence);
